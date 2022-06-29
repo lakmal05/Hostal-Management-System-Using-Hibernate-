@@ -1,6 +1,8 @@
 package lk.ijse.hostel_Management.dao.custom.impl;
 
 import lk.ijse.hostel_Management.dao.custom.RoomDAO;
+import lk.ijse.hostel_Management.entity.Room;
+import lk.ijse.hostel_Management.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;

@@ -2,7 +2,8 @@ package lk.ijse.hostel_Management.bo.custom.impl;
 
 import lk.ijse.hostel_Management.bo.custom.KeyMoneyDetailsBO;
 import lk.ijse.hostel_Management.dao.DAOFactory;
-import lk.ijse.hostel_Management.dao.custom.impl.QuarryDAO;
+import lk.ijse.hostel_Management.dao.custom.QuarryDAO;
+
 
 import java.util.List;
 

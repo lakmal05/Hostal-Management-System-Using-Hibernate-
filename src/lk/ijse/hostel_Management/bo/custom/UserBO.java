@@ -1,5 +1,7 @@
 package lk.ijse.hostel_Management.bo.custom;
 
+import lk.ijse.hostel_Management.dto.UserDTO;
+
 import java.util.ArrayList;
 
 public interface UserBO {

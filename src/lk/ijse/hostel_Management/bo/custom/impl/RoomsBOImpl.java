@@ -1,6 +1,10 @@
 package lk.ijse.hostel_Management.bo.custom.impl;
 
 import lk.ijse.hostel_Management.bo.custom.RoomsBO;
+import lk.ijse.hostel_Management.dao.DAOFactory;
+import lk.ijse.hostel_Management.dao.custom.RoomDAO;
+import lk.ijse.hostel_Management.dto.RoomDTO;
+import lk.ijse.hostel_Management.entity.Room;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +18,7 @@ public class RoomsBOImpl implements RoomsBO {
         List<Room> all = roomDAO.getAll();
         List<RoomDTO> allRooms=new ArrayList<>();
         for (Room room : all) {
-            allRooms.add(new RoomDTO(room.getRoomId(),room.getType(),room.getKeyMoney(),room.getQty()));
+            allRooms.add(new RoomDTO(room.getRoomID(),room.getType(),room.getKey_money(),room.getQty()));
         }
         return allRooms;
     }
@@ -26,12 +30,12 @@ public class RoomsBOImpl implements RoomsBO {
 
     @Override
     public boolean saveRoom(RoomDTO roomDTO) throws Exception {
-        return roomDAO.save(new Room(roomDTO.getRoomId(),roomDTO.getType(),roomDTO.getKeyMoney(),roomDTO.getQty()));
+        return roomDAO.save(new Room(roomDTO.getRoomID(),roomDTO.getType(),roomDTO.getKeyMoney(),roomDTO.getQty()));
     }
 
     @Override
     public boolean updateRoom(RoomDTO roomDTO) throws Exception {
-        return roomDAO.update(new Room(roomDTO.getRoomId(),roomDTO.getType(),roomDTO.getKeyMoney(),roomDTO.getQty()));
+        return roomDAO.update(new Room(roomDTO.getRoomID(),roomDTO.getType(),roomDTO.getKeyMoney(),roomDTO.getQty()));
     }
 
     @Override

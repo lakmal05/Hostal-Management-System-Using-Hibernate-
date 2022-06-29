@@ -1,6 +1,10 @@
 package lk.ijse.hostel_Management.bo.custom.impl;
 
 import lk.ijse.hostel_Management.bo.custom.UserBO;
+import lk.ijse.hostel_Management.dao.DAOFactory;
+import lk.ijse.hostel_Management.dao.custom.UserDAO;
+import lk.ijse.hostel_Management.dto.UserDTO;
+import lk.ijse.hostel_Management.entity.User;
 
 import java.util.ArrayList;
 import java.util.List;

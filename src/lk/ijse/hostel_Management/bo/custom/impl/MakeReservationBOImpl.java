@@ -5,7 +5,11 @@ import lk.ijse.hostel_Management.dao.DAOFactory;
 import lk.ijse.hostel_Management.dao.custom.RoomDAO;
 import lk.ijse.hostel_Management.dao.custom.RoomReservationDAO;
 import lk.ijse.hostel_Management.dao.custom.StudentDAO;
+import lk.ijse.hostel_Management.dto.RoomDTO;
+import lk.ijse.hostel_Management.dto.RoomReservationDTO;
 import lk.ijse.hostel_Management.dto.StudentDTO;
+import lk.ijse.hostel_Management.entity.Room;
+import lk.ijse.hostel_Management.entity.RoomReservation;
 import lk.ijse.hostel_Management.entity.Student;
 
 import java.util.ArrayList;
@@ -44,7 +48,7 @@ public class MakeReservationBOImpl implements MakeReservationBO {
 
     @Override
     public boolean saveStudent(StudentDTO studentDTO) throws Exception {
-        return studentDAO.save(new Student(studentDTO.getStudentId(),studentDTO.getName(),studentDTO.getAddress(),studentDTO.getContactNo(),studentDTO.getDob(),studentDTO.getGender()));
+        return studentDAO.save(new Student(studentDTO.getStudent_id(),studentDTO.getName(),studentDTO.getAddress(),studentDTO.getContactNo(),studentDTO.getDOB(),studentDTO.getGender()));
     }
 
     @Override
@@ -53,23 +57,24 @@ public class MakeReservationBOImpl implements MakeReservationBO {
     }
 
     @Override
-    public boolean saveReservation(ReservationDTO reservationDTO) throws Exception {
-        return reservationDAO.save(new Reservation(reservationDTO.getResId(),reservationDTO.getDate(),reservationDTO.getStatus(),reservationDTO.getStudent(),reservationDTO.getRoom()));
+
+    public boolean saveReservation(RoomReservationDTO reservationDTO) throws Exception {
+        return reservationDAO.save(new RoomReservation(reservationDTO.getResId(),reservationDTO.getDate(),reservationDTO.getStatus(),reservationDTO.getStudent(),reservationDTO.getRoom()));
     }
 
     @Override
-    public List<ReservationDTO> getAllReservations() throws Exception {
-        List<Reservation> all = reservationDAO.getAll();
-        List<ReservationDTO> allReservations=new ArrayList<>();
-        for (Reservation reservation : all) {
-            allReservations.add(new ReservationDTO(reservation.getResId(),reservation.getDate(),reservation.getStatus(),reservation.getStudent(),reservation.getRoom()));
+    public List<RoomReservationDTO> getAllReservations() throws Exception {
+        List<RoomReservation> all = reservationDAO.getAll();
+        List<RoomReservationDTO> allReservations=new ArrayList<>();
+        for (RoomReservation reservation : all) {
+            allReservations.add(new RoomReservationDTO(reservation.getRes_id(),reservation.getDate(),reservation.getStatus(),reservation.getStudent(),reservation.getRoom()));
         }
         return allReservations;
     }
 
     @Override
     public boolean updateRoomDetails(RoomDTO roomDTO) throws Exception {
-        return roomDAO.update(new Room(roomDTO.getRoomId(),roomDTO.getType(),roomDTO.getKeyMoney(),roomDTO.getQty()));
+        return roomDAO.update(new Room(roomDTO.getRoomID(),roomDTO.getType(),roomDTO.getKeyMoney(),roomDTO.getQty()));
     }
 
 

@@ -1,5 +1,7 @@
 package lk.ijse.hostel_Management.bo.custom;
 
+import lk.ijse.hostel_Management.dto.RoomDTO;
+
 import java.util.List;
 
 public interface RoomsBO {

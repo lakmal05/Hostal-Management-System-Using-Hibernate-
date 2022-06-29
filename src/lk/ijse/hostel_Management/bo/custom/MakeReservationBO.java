@@ -1,5 +1,9 @@
 package lk.ijse.hostel_Management.bo.custom;
 
+import lk.ijse.hostel_Management.dto.RoomDTO;
+import lk.ijse.hostel_Management.dto.RoomReservationDTO;
+import lk.ijse.hostel_Management.dto.StudentDTO;
+
 import java.util.List;
 
 public interface MakeReservationBO {
@@ -13,9 +17,9 @@ public interface MakeReservationBO {
 
     boolean checkTheStudentIsExist(String studentId);
 
-    boolean saveReservation(ReservationDTO reservationDTO) throws Exception;
+    boolean saveReservation(RoomReservationDTO reservationDTO) throws Exception;
 
-    List<ReservationDTO> getAllReservations() throws Exception;
+    List<RoomReservationDTO> getAllReservations() throws Exception;
 
     boolean updateRoomDetails(RoomDTO roomDTO) throws Exception;
 

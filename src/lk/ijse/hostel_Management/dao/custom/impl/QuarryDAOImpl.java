@@ -7,7 +7,7 @@ import org.hibernate.query.Query;
 
 import java.util.List;
 
-public class QuarryDAOImpl implements lk.ijse.hostel_Management.dao.custom.impl.QuarryDAO {
+public class QuarryDAOImpl implements lk.ijse.hostel_Management.dao.custom.QuarryDAO {
 
     @Override
     public List<Object[]> getKeyMoneyAndStudentDetails() {

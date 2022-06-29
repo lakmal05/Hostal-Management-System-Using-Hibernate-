@@ -1,6 +1,8 @@
 package lk.ijse.hostel_Management.dao.custom.impl;
 
 import lk.ijse.hostel_Management.dao.custom.RoomReservationDAO;
+import lk.ijse.hostel_Management.entity.RoomReservation;
+import lk.ijse.hostel_Management.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -10,7 +12,7 @@ import java.util.List;
 public class RoomReservationDAOImpl implements RoomReservationDAO {
 
     @Override
-    public List<Reservation> getAll() {
+    public List<RoomReservation> getAll() {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
@@ -25,7 +27,7 @@ public class RoomReservationDAOImpl implements RoomReservationDAO {
     }
 
     @Override
-    public boolean save(Reservation entity) {
+    public boolean save(RoomReservation entity) {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
@@ -38,7 +40,7 @@ public class RoomReservationDAOImpl implements RoomReservationDAO {
     }
 
     @Override
-    public boolean update(Reservation entity) {
+    public boolean update(RoomReservation entity) {
         return false;
     }
 
@@ -47,7 +49,7 @@ public class RoomReservationDAOImpl implements RoomReservationDAO {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        Reservation reservation = session.load(Reservation.class, id);
+        RoomReservation reservation = session.load(RoomReservation.class, id);
         session.delete(reservation);
 
         transaction.commit();
@@ -62,7 +64,7 @@ public class RoomReservationDAOImpl implements RoomReservationDAO {
     }
 
     @Override
-    public Reservation search(String s) {
+    public RoomReservation search(String s) {
         return null;
     }
     @Override
