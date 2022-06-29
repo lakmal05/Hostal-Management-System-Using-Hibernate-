@@ -30,7 +30,7 @@ public class BOFactory {
             case MAKERESERVATION:
                 return new MakeReservationBOImpl();
             case RESERVATIONDETAILS:
-          /     return new ReservationDetailsBOImpl();
+              return new ReservationDetailsBOImpl();
             case USER:
                 return new UserBOImpl();
             case KEYMONEYREMAINSTUDENTS:

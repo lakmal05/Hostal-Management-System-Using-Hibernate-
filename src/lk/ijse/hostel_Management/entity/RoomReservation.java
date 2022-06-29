@@ -3,6 +3,7 @@ package lk.ijse.hostel_Management.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -16,17 +17,17 @@ import java.time.LocalDate;
 public class RoomReservation {
     @Id
     private String res_id;
+   @CreationTimestamp
     private LocalDate date;
+    private String status;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "student_id",referencedColumnName = "student_id")
+
+    @ManyToOne
     private  Student student;
 
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "roomID",referencedColumnName = "roomID")
+    @ManyToOne
     private  Room room;
-    private String status;
 
 
 }

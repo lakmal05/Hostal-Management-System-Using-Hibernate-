@@ -1,12 +1,22 @@
 package lk.ijse.hostel_Management.entity;
 
 import com.mysql.cj.protocol.ColumnDefinition;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.List;
+
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+
 
 public class Room {
 
@@ -17,12 +27,11 @@ public class Room {
     private int qty;
 
     @OneToMany(mappedBy = "room",cascade = CascadeType.ALL)
-    private List<RoomReservation> roomDetails;
+    private List<RoomReservation> reservationsList= new ArrayList<>();
 
 
 
-    public Room() {
-    }
+
 
     public Room(String roomID, String type, double key_money, int qty) {
         this.roomID = roomID;
