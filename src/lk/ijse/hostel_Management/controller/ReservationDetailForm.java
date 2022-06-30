@@ -20,7 +20,7 @@ public class ReservationDetailForm {
 
     public void initialize() throws Exception {
         disableFields();
-
+        loadDateAndTime();
 
         tblReservationDetails.getColumns().get(0).setCellValueFactory(new PropertyValueFactory("resID"));
         tblReservationDetails.getColumns().get(1).setCellValueFactory(new PropertyValueFactory("date"));
@@ -148,6 +148,7 @@ public class ReservationDetailForm {
                 tblReservationDetails.requestFocus();
             }
         }
+    }
     }
 
 

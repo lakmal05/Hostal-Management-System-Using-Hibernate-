@@ -1,8 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="467.0" prefWidth="732.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel_Management.controller.MainForm">
-
+<AnchorPane fx:id="MainPageConetxt" prefHeight="550.0" prefWidth="861.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel_Management.controller.MainForm">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="76.0" strokeType="INSIDE" width="861.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#d8dbdd" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#d8dbdd" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Rectangle>
+      <ImageView fx:id="imgBookingRoom" fitHeight="76.0" fitWidth="94.0" layoutX="67.0" layoutY="199.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assert/bed-and-breakfast.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgStudents" fitHeight="97.0" fitWidth="94.0" layoutX="244.0" layoutY="188.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true">
+         <image>
+            <Image url="@../assert/add.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgKeyMoney" fitHeight="97.0" fitWidth="86.0" layoutX="442.0" layoutY="188.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true">
+         <image>
+            <Image url="@../assert/hotel.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="27.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imgBookingDetaiks" fitHeight="97.0" fitWidth="86.0" layoutX="602.0" layoutY="189.0" onMouseClicked="#navigate" onMouseEntered="#playMouseEnterAnimation" onMouseExited="#playMouseExitAnimation" pickOnBounds="true">
+         <image>
+            <Image url="@../assert/check-list.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblMenu" layoutX="302.0" layoutY="396.0" prefHeight="17.0" prefWidth="219.0" text="Label" />
+      <Label fx:id="lblDescription" layoutX="266.0" layoutY="447.0" prefHeight="17.0" prefWidth="219.0" text="Label" />
+      <Label layoutX="343.0" layoutY="24.0" prefHeight="17.0" prefWidth="112.0" text="Main Page" textFill="BLUE">
+         <font>
+            <Font name="Consolas Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDate" layoutX="659.0" layoutY="40.0" prefHeight="3.0" prefWidth="99.0" textFill="#c61d1d">
+         <font>
+            <Font name="Consolas Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTime" layoutX="659.0" layoutY="18.0" prefHeight="17.0" prefWidth="119.0" textFill="#c61d1d">
+         <font>
+            <Font name="Consolas Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="608.0" layoutY="40.0" prefHeight="17.0" prefWidth="61.0" text="Date  :">
+         <font>
+            <Font name="Consolas Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="608.0" layoutY="18.0" prefHeight="17.0" prefWidth="61.0" text="Time  :">
+         <font>
+            <Font name="Consolas Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
 </AnchorPane>
