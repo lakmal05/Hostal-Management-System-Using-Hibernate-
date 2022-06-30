@@ -5,12 +5,13 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.io.IOException;
 import java.util.List;
 
 public class QuarryDAOImpl implements lk.ijse.hostel_Management.dao.custom.QuarryDAO {
 
     @Override
-    public List<Object[]> getKeyMoneyAndStudentDetails() {
+    public List<Object[]> getKeyMoneyAndStudentDetails() throws IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 

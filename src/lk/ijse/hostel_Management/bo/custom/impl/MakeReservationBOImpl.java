@@ -12,6 +12,7 @@ import lk.ijse.hostel_Management.entity.Room;
 import lk.ijse.hostel_Management.entity.RoomReservation;
 import lk.ijse.hostel_Management.entity.Student;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class MakeReservationBOImpl implements MakeReservationBO {
         List<Student> all = studentDAO.getAll();
         List<StudentDTO> allStudents=new ArrayList<>();
         for (Student student : all) {
-            allStudents.add(new StudentDTO(student.getStudentId(),student.getName(),student.getAddress(),student.getContactNo(),student.getDob(),student.getGender()));
+            allStudents.add(new StudentDTO(student.getStudent_id(),student.getName(),student.getAddress(),student.getContactNo(),student.getDOB(),student.getGender()));
         }
         return allStudents;
     }
@@ -36,13 +37,13 @@ public class MakeReservationBOImpl implements MakeReservationBO {
         List<Room> all = roomDAO.getAll();
         List<RoomDTO> allRooms=new ArrayList<>();
         for (Room room : all) {
-            allRooms.add(new RoomDTO(room.getRoomId(),room.getType(),room.getKeyMoney(),room.getQty()));
+            allRooms.add(new RoomDTO(room.getRoomID(),room.getType(),room.getKey_money(),room.getQty()));
         }
         return allRooms;
     }
 
     @Override
-    public String generateNewReservationID() {
+    public String generateNewReservationID() throws IOException {
         return reservationDAO.generateNewID();
     }
 
@@ -52,7 +53,7 @@ public class MakeReservationBOImpl implements MakeReservationBO {
     }
 
     @Override
-    public boolean checkTheStudentIsExist(String studentId) {
+    public boolean checkTheStudentIsExist(String studentId) throws IOException {
         return studentDAO.exist(studentId);
     }
 

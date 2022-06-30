@@ -7,11 +7,12 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.io.IOException;
 import java.util.List;
 
 public class LoginDAOImpl implements LoginDAO {
     @Override
-    public List<User> getAllUsers() {
+    public List<User> getAllUsers()  {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 

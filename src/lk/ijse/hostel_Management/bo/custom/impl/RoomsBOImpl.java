@@ -6,6 +6,7 @@ import lk.ijse.hostel_Management.dao.custom.RoomDAO;
 import lk.ijse.hostel_Management.dto.RoomDTO;
 import lk.ijse.hostel_Management.entity.Room;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class RoomsBOImpl implements RoomsBO {
     }
 
     @Override
-    public boolean updateQty(String roomTypeID, int qty) {
+    public boolean updateQty(String roomTypeID, int qty) throws IOException {
         return roomDAO.updateQty(roomTypeID,qty);
     }
 

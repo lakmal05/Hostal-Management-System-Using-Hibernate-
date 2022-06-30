@@ -20,17 +20,12 @@ public class StudentDTO {
     private LocalDate DOB;
     private  String gender;
 
-
-
     @Override
-    public String toString() {
-        return "StudentDTO{" +
-                "student_id='" + student_id + '\'' +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", contactNo='" + contactNo + '\'' +
-                ", DOB='" + DOB + '\'' +
-                ", gender='" + gender + '\'' +
-                '}';
-    }
+     public String toString(){
+         return student_id;
+     }
+
+
+
+
 }

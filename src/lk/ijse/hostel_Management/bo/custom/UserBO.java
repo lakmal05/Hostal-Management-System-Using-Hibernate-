@@ -1,10 +1,11 @@
 package lk.ijse.hostel_Management.bo.custom;
 
+import lk.ijse.hostel_Management.bo.SuperBO;
 import lk.ijse.hostel_Management.dto.UserDTO;
 
 import java.util.ArrayList;
 
-public interface UserBO {
+public interface UserBO  extends SuperBO {
     boolean saveUser(UserDTO dto) throws Exception;
 
     boolean updateUser(UserDTO dto) throws Exception;

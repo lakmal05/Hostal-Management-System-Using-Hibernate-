@@ -12,6 +12,7 @@ import lk.ijse.hostel_Management.entity.Room;
 import lk.ijse.hostel_Management.entity.RoomReservation;
 import lk.ijse.hostel_Management.entity.Student;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,23 +39,23 @@ public class ReservationDetailsBOImpl  implements ReservationDetailsBO {
     }
 
     @Override
-    public boolean updateRoomQty(String roomTypeID, int qty) {
+    public boolean updateRoomQty(String roomTypeID, int qty) throws IOException {
         return roomDAO.updateQty(roomTypeID,qty);
     }
 
     @Override
-    public RoomDTO getRoom(String roomTypeID) {
+    public RoomDTO getRoom(String roomTypeID) throws IOException {
         Room room = roomDAO.search(roomTypeID);
         return new RoomDTO(room.getRoomID(),room.getType(),room.getKey_money(),room.getQty());
     }
 
     @Override
-    public boolean updateReservationStatus(String res_id, String status) {
+    public boolean updateReservationStatus(String res_id, String status) throws IOException {
         return reservationDAO.updateStatus(res_id,status);
     }
 
     @Override
-    public StudentDTO getStudent(String studentId) {
+    public StudentDTO getStudent(String studentId) throws IOException {
         Student student = studentDAO.search(studentId);
         return new StudentDTO(student.getStudent_id(),student.getName(),student.getAddress(),student.getContactNo(),student.getDOB(),student.getGender());
     }

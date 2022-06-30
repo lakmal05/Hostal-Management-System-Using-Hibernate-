@@ -5,6 +5,7 @@ import lk.ijse.hostel_Management.dao.DAOFactory;
 import lk.ijse.hostel_Management.dao.custom.StudentDAO;
 import lk.ijse.hostel_Management.dto.StudentDTO;
 import lk.ijse.hostel_Management.entity.Student;
+import lombok.SneakyThrows;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,7 @@ public class StudentDetailsBOImpl implements StudentBO {
         return studentDAO.delete(studentId);
     }
 
+    @SneakyThrows
     @Override
     public boolean checkStudentIsExists(String id) {
         return studentDAO.exist(id);

@@ -1,26 +1,43 @@
 package lk.ijse.hostel_Management.controller;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import lk.ijse.hostel_Management.bo.BOFactory;
 import lk.ijse.hostel_Management.bo.custom.ReservationDetailsBO;
+import lk.ijse.hostel_Management.dto.RoomDTO;
+import lk.ijse.hostel_Management.dto.RoomReservationDTO;
+import lk.ijse.hostel_Management.dto.StudentDTO;
 import lk.ijse.hostel_Management.view.TM.ReservationTM;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
 public class ReservationDetailForm {
 
     private final ReservationDetailsBO reservationDetailsBO = (ReservationDetailsBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.RESERVATIONDETAILS);
+    public AnchorPane ReservationDetailsFormContext;
+    public JFXTextField txtReservationID;
+    public JFXTextField txtRoomID;
+    public JFXTextField txtAddress;
+    public JFXTextField txtStudentID;
+    public JFXTextField txtDate;
+    public JFXTextField txtName;
+    public JFXTextField txtDOB;
+    public JFXTextField txtStatus;
+    public JFXTextField txtGender;
+    public JFXButton btnUpdate;
+    public TableView <ReservationTM>tblReservationDetails;
+    public JFXTextField txtContact;
 
     public void initialize() throws Exception {
         disableFields();
-        loadDateAndTime();
+
 
         tblReservationDetails.getColumns().get(0).setCellValueFactory(new PropertyValueFactory("resID"));
         tblReservationDetails.getColumns().get(1).setCellValueFactory(new PropertyValueFactory("date"));
@@ -35,11 +52,11 @@ public class ReservationDetailForm {
                 Optional<ButtonType> buttonType = alert.showAndWait();
                 if (buttonType.get().equals(ButtonType.YES)) {
                     try {
-                        if (reservationDetailsBO.removeReservation(param.getValue().getResID())) {
+                        if (reservationDetailsBO.removeReservation(param.getValue().getRes_id())) {
                             tblReservationDetails.getItems().remove(param.getValue());
                             new Alert(Alert.AlertType.CONFIRMATION, "Removed..!!").show();
-                            RoomDTO roomDTO = reservationDetailsBO.getRoom(param.getValue().getRoomId());
-                            reservationDetailsBO.updateRoomQty(roomDTO.getRoomId(), roomDTO.getQty() + 1);
+                            RoomDTO roomDTO = reservationDetailsBO.getRoom(param.getValue().getRoom_id());
+                            reservationDetailsBO.updateRoomQty(roomDTO.getRoomID(), roomDTO.getQty() + 1);
 
                             clearFields();
 
@@ -77,20 +94,24 @@ public class ReservationDetailForm {
                 txtGender.setDisable(false);
                 txtGender.setEditable(false);
 
-                txtReservationID.setText(newValue.getResID());
+                txtReservationID.setText(newValue.getRes_id());
                 txtDate.setText(String.valueOf(newValue.getDate()));
-                txtRoomID.setText(newValue.getRoomId());
+                txtRoomID.setText(newValue.getRoom_id());
                 txtStatus.setText(newValue.getStatus());
                 btnUpdate.setDisable(false);
 
 
-
-                StudentDTO student = reservationDetailsBO.getStudent(newValue.getStudentId());
-                txtStudentID.setText(student.getStudentId());
+                StudentDTO student = null;
+                try {
+                    student = reservationDetailsBO.getStudent(newValue.getStudent_id());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                txtStudentID.setText(student.getStudent_id());
                 txtName.setText(student.getName());
                 txtAddress.setText(student.getAddress());
                 txtContact.setText(student.getContactNo());
-                txtDOB.setText(String.valueOf(student.getDob()));
+                txtDOB.setText(String.valueOf(student.getDOB()));
                 txtGender.setText(student.getGender());
 
                 txtStatus.requestFocus();
@@ -130,16 +151,16 @@ public class ReservationDetailForm {
     }
 
     private void loadAllReservationDetails() throws Exception {
-        List<ReservationDTO> allReservations = reservationDetailsBO.getAllReservations();
-        for (ReservationDTO dto : allReservations) {
-            tblReservationDetails.getItems().add(new ReservationTM(dto.getResId(), dto.getDate(), dto.getRoom().getRoomId(), dto.getStudent().getStudentId(), dto.getStatus()));
+        List<RoomReservationDTO> allReservations = reservationDetailsBO.getAllReservations();
+        for (RoomReservationDTO dto : allReservations) {
+            tblReservationDetails.getItems().add(new ReservationTM(dto.getResId(), dto.getDate(), dto.getRoom().getRoomID(), dto.getStudent().getStudent_id(), dto.getStatus()));
         }
     }
 
-    public void btnUpdateOnAction(ActionEvent actionEvent) {
+    public void btnUpdateOnAction(ActionEvent actionEvent) throws IOException {
         ReservationTM selectedItem = tblReservationDetails.getSelectionModel().getSelectedItem();
         if (selectedItem != null) {
-            if (reservationDetailsBO.updateReservationStatus(selectedItem.getResID(), txtStatus.getText())) {
+            if (reservationDetailsBO.updateReservationStatus(selectedItem.getRes_id(), txtStatus.getText())) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Updated").show();
                 selectedItem.setStatus(txtStatus.getText());
                 tblReservationDetails.refresh();
@@ -175,4 +196,3 @@ public class ReservationDetailForm {
 
 
 
-}

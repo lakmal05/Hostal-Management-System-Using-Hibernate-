@@ -1,5 +1,6 @@
 package lk.ijse.hostel_Management.dao;
 
+import java.io.IOException;
 import java.util.List;
 
 public interface CrudDAO <T,ID> extends SuperDAO{
@@ -11,9 +12,9 @@ public interface CrudDAO <T,ID> extends SuperDAO{
 
     boolean delete(ID id) throws Exception;//
 
-    boolean exist(ID id) ;
+    boolean exist(ID id) throws IOException;
 
-    T search(ID id);//Get
+    T search(ID id) throws IOException;//Get
 
 
 }

@@ -7,13 +7,14 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.io.IOException;
 import java.util.List;
 
 public class StudentDAOImpl implements StudentDAO {
 
 
     @Override
-    public List<Student> getAll() {
+    public List<Student> getAll() throws IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
@@ -27,7 +28,7 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public boolean save(Student entity) {
+    public boolean save(Student entity) throws IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
@@ -40,7 +41,7 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public boolean update(Student entity) {
+    public boolean update(Student entity) throws IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
@@ -53,7 +54,7 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public boolean delete(String id) {
+    public boolean delete(String id) throws IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
@@ -68,11 +69,11 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public boolean exist(String id) {
+    public boolean exist(String id) throws IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        String hql="From Student WHERE studentId= :student_Id";
+        String hql="From Student WHERE student_id= :student_Id";
         Query query = session.createQuery(hql);
         query.setParameter("student_Id",id);
         List<Student> studentList = query.list();
@@ -87,7 +88,7 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public Student search(String id) {
+    public Student search(String id) throws IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 

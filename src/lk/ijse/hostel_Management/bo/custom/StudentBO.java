@@ -1,10 +1,11 @@
 package lk.ijse.hostel_Management.bo.custom;
 
+import lk.ijse.hostel_Management.bo.SuperBO;
 import lk.ijse.hostel_Management.dto.StudentDTO;
 
 import java.util.List;
 
-public interface StudentBO {
+public interface StudentBO extends SuperBO {
     List<StudentDTO> getAllStudents() throws Exception;
 
     boolean deleteStudent(String studentId) throws Exception;

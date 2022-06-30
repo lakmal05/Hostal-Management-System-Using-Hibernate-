@@ -1,14 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.hostel_Management.controller.RoomsManagementForm"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane fx:id="ManageRoomFormContext" prefHeight="513.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel_Management.controller.RoomsManagementForm">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="68.0" stroke="#e8e3e3" strokeType="INSIDE" width="780.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#cad6e1" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <Label layoutX="321.0" layoutY="14.0" prefHeight="17.0" prefWidth="112.0" text="Place Order" textFill="BLUE">
+         <font>
+            <Font name="Consolas Bold" size="14.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtRoomID" layoutX="46.0" layoutY="121.0" text="Room ID" />
+      <JFXTextField fx:id="txtQty" layoutX="471.0" layoutY="119.0" text="QTY" />
+      <JFXTextField fx:id="txtKeyMoney" layoutX="271.0" layoutY="131.0" text="Key Money" />
+      <JFXButton fx:id="btnSave" layoutX="427.0" layoutY="169.0" onAction="#btnSaveOnAction" prefHeight="25.0" prefWidth="67.0" text="SAVE" />
+      <JFXButton fx:id="btnDelete" layoutX="519.0" layoutY="181.0" onAction="#btnDeleteOnAction" text="DELETE" />
+      <JFXButton layoutX="618.0" layoutY="156.0" onAction="#btnAddNewRoomOnAction" text="NEW ROOM" />
+      <JFXComboBox fx:id="cmbRoomType" layoutX="133.0" layoutY="181.0" prefHeight="25.0" prefWidth="179.0" promptText="Room Type" />
+      <TableView fx:id="tblRoom" layoutX="120.0" layoutY="240.0" prefHeight="200.0" prefWidth="498.0">
+        <columns>
+          <TableColumn fx:id="colRoomID" prefWidth="147.0" text="Room ID" />
+          <TableColumn fx:id="colRoomType" prefWidth="104.0" text="Room Type" />
+            <TableColumn fx:id="colKeyMoney" prefWidth="93.0" text="Key Money" />
+            <TableColumn fx:id="colQty" prefWidth="153.0" text="QTY" />
+        </columns>
+      </TableView>
+   </children>
 </AnchorPane>

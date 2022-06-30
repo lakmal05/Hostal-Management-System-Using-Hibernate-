@@ -7,18 +7,19 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.io.IOException;
 import java.util.List;
 
 public class RoomReservationDAOImpl implements RoomReservationDAO {
 
     @Override
-    public List<RoomReservation> getAll() {
+    public List<RoomReservation> getAll() throws IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        String hql="FROM Reservation";
+        String hql="FROM RoomReservation ";
         Query query = session.createQuery(hql);
-        List<Reservation> reservationList = query.list();
+        List<RoomReservation> reservationList = query.list();
 
         transaction.commit();
         session.close();
@@ -27,7 +28,7 @@ public class RoomReservationDAOImpl implements RoomReservationDAO {
     }
 
     @Override
-    public boolean save(RoomReservation entity) {
+    public boolean save(RoomReservation entity) throws IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
@@ -45,7 +46,7 @@ public class RoomReservationDAOImpl implements RoomReservationDAO {
     }
 
     @Override
-    public boolean delete(String id) {
+    public boolean delete(String id) throws IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
@@ -68,11 +69,11 @@ public class RoomReservationDAOImpl implements RoomReservationDAO {
         return null;
     }
     @Override
-    public String generateNewID() {
+    public String generateNewID() throws IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        String hql="SELECT resId FROM Reservation ORDER BY resId DESC";
+        String hql="SELECT res_id FROM RoomReservation  ORDER BY res_id DESC";
         Query query = session.createQuery(hql);
         query.setMaxResults(1);
         List<String> list = query.list();
@@ -84,11 +85,11 @@ public class RoomReservationDAOImpl implements RoomReservationDAO {
     }
 
     @Override
-    public boolean updateStatus(String res_id, String status) {
+    public boolean updateStatus(String res_id, String status) throws IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        String hql="UPDATE Reservation SET status=: new_Status WHERE resId=: reservationId";
+        String hql="UPDATE RoomReservation SET status=: new_Status WHERE res_id=: reservationId";
         Query query = session.createQuery(hql);
         query.setParameter("new_Status",status);
         query.setParameter("reservationId",res_id);

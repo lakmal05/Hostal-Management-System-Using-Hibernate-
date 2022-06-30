@@ -5,10 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,14 +13,14 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-
+@Entity
 
 public class Room {
 
     @Id
     private String roomID;
     private String type;
-    private double key_money;
+    private String key_money;
     private int qty;
 
     @OneToMany(mappedBy = "room",cascade = CascadeType.ALL)
@@ -33,7 +30,7 @@ public class Room {
 
 
 
-    public Room(String roomID, String type, double key_money, int qty) {
+    public Room(String roomID, String type, String key_money, int qty) {
         this.roomID = roomID;
         this.type = type;
         this.key_money = key_money;
@@ -41,8 +38,8 @@ public class Room {
     }
 
 
-    public  Room(String room_id){
+  /*  public  Room(String room_id){
         this.roomID=room_id;
-    }
+    }*/
 
 }
