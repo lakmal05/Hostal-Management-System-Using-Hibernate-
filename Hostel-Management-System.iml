@@ -4,7 +4,9 @@
     <facet type="jpa" name="JPA">
       <configuration>
         <setting name="validation-enabled" value="true" />
-        <datasource-mapping />
+        <datasource-mapping>
+          <factory-entry name="Hostel-Management-System" value="c9b21950-ece8-43ec-bedc-9595fe589dbd" />
+        </datasource-mapping>
         <naming-strategy-map />
       </configuration>
     </facet>
@@ -26,7 +28,7 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="antlr-2.7.7" level="project" />
-    <orderEntry type="library" name="src" level="project" />
-    <orderEntry type="library" name="txw2-2.3.1" level="project" />
+    <orderEntry type="library" name="hibernate-commons-annotations-5.1.2.Final" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>

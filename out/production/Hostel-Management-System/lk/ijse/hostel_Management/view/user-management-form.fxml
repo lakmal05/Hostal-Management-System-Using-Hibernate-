@@ -1,14 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.hostel_Management.controller.UserManagementForm"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane fx:id="UserManagementFormContext" prefHeight="474.0" prefWidth="807.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel_Management.controller.UserManagementForm">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="55.0" stroke="#ddcece" strokeType="INSIDE" width="807.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#bfc8d0" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <JFXTextField fx:id="txtNic" layoutX="35.0" layoutY="111.0" text="Nic" />
+      <JFXTextField fx:id="txtUserName" layoutX="336.0" layoutY="96.0" text="USER nME" />
+      <JFXTextField fx:id="txtPassword" layoutX="519.0" layoutY="111.0" text="Password" />
+      <JFXTextField fx:id="txtName" layoutX="236.0" layoutY="121.0" text="Name" />
+      <JFXTextField fx:id="txtConfirmPassword" layoutX="471.0" layoutY="146.0" text="cOMFOME PSSWORD" />
+      <JFXButton fx:id="btnAddUser" layoutX="535.0" layoutY="195.0" onAction="#btnAddUserOnAction" text="Add User" />
+      <JFXButton fx:id="btnCancel" layoutX="645.0" layoutY="183.0" onAction="#btnCancelOnAction" text="Cancel" />
+      <TableView fx:id="tblUserData" layoutX="228.0" layoutY="220.0" prefHeight="200.0" prefWidth="378.0">
+        <columns>
+          <TableColumn fx:id="colNic" prefWidth="75.0" text="Nic" />
+          <TableColumn fx:id="colName" prefWidth="75.0" text="Name" />
+            <TableColumn fx:id="colUserName" prefWidth="75.0" text="User Nme" />
+            <TableColumn fx:id="colPassword" prefWidth="75.0" text="PSSERWRD" />
+            <TableColumn fx:id="colOption" prefWidth="75.0" text="oPTION" />
+        </columns>
+      </TableView>
+   </children>
 </AnchorPane>

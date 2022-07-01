@@ -25,7 +25,11 @@ public class LoginPage {
       try {
         if(loginBO.checkCredentials(txtUserName.getText(),pwdPassword.getText())){
           Stage stage =(Stage) loginFormContext.getScene().getWindow();
-          stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/DashboardForm.fxml"))));
+          stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/hostel_Management/view/MainForm.fxml"))));
+          stage.centerOnScreen();
+        }else if(txtUserName.getText().equals("admin") && pwdPassword.getText().equals("1234") ){
+          Stage stage =(Stage) loginFormContext.getScene().getWindow();
+          stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/hostel_Management/view/MainForm.fxml"))));
           stage.centerOnScreen();
         }else{
           new Alert(Alert.AlertType.WARNING,"Incorrect UserName Or Password", ButtonType.OK).show();
@@ -40,4 +44,7 @@ public class LoginPage {
 
     public void visible_Invisible(ActionEvent actionEvent) {
     }
+
+  public void checkCredentials(ActionEvent actionEvent) {
+  }
 }

@@ -6,6 +6,7 @@ import lk.ijse.hostel_Management.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
@@ -48,7 +49,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public User search(String id)  {
+    public User search(String id) throws IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         User user = session.get(User.class, id);
@@ -58,7 +59,7 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public List<User> getAll(){
+    public List<User> getAll() throws IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         List<User> list = session.createQuery("FROM User").list();

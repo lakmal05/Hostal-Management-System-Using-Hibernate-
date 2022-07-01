@@ -9,15 +9,15 @@
    <children>
       <AnchorPane layoutX="408.0" layoutY="92.0" prefHeight="33.0" prefWidth="200.0">
          <children>
-            <JFXTextField fx:id="txtUserName" layoutX="24.0" layoutY="1.0" />
+            <JFXTextField fx:id="txtUserName" layoutX="24.0" layoutY="1.0" promptText="User Name" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="424.0" layoutY="212.0" prefHeight="33.0" prefWidth="159.0">
          <children>
-            <JFXPasswordField fx:id="pwdPassword" layoutX="17.0" layoutY="2.0" />
+            <JFXPasswordField fx:id="pwdPassword" layoutX="17.0" layoutY="2.0" onAction="#checkCredentials" promptText="Password" />
          </children>
       </AnchorPane>
-      <JFXButton layoutX="466.0" layoutY="327.0" onAction="#LoginOnAction" text="Submit" />
+      <JFXButton buttonType="RAISED" layoutX="432.0" layoutY="325.0" onAction="#LoginOnAction" prefHeight="25.0" prefWidth="115.0" style="-fx-background-color: yellow;" text="Submit" textFill="#213adb" />
       <JFXButton layoutX="608.0" layoutY="216.0" onAction="#visible_Invisible" prefHeight="25.0" prefWidth="25.0" />
    </children>
 </AnchorPane>

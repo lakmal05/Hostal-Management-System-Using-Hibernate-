@@ -24,6 +24,8 @@ public class StudentDAOImpl implements StudentDAO {
         transaction.commit();
         session.close();
 
+
+
         return studentList;
     }
 

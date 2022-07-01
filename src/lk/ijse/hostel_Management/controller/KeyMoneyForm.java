@@ -9,12 +9,13 @@ import lk.ijse.hostel_Management.bo.BOFactory;
 import lk.ijse.hostel_Management.bo.custom.KeyMoneyDetailsBO;
 import lk.ijse.hostel_Management.view.TM.keyMoneyDetailsTM;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 
 public class KeyMoneyForm {
     public AnchorPane KeyMoneyContext;
-    public TableView tblKeyMoney;
+    public TableView<keyMoneyDetailsTM> tblKeyMoney;
     public Label lblDate;
     public Label lblTime;
 
@@ -24,7 +25,7 @@ public class KeyMoneyForm {
 
 
 
-    public void initialize() {
+    public void initialize() throws IOException {
         tblKeyMoney.getColumns().get(0).setCellValueFactory(new PropertyValueFactory("studentId"));
         tblKeyMoney.getColumns().get(1).setCellValueFactory(new PropertyValueFactory("name"));
         tblKeyMoney.getColumns().get(2).setCellValueFactory(new PropertyValueFactory("address"));
@@ -37,7 +38,7 @@ public class KeyMoneyForm {
         loadAllData();
     }
 
-    private void loadAllData() {
+    private void loadAllData() throws IOException {
         List<Object[]> list = keyMoneyRemainStudentsBO.getKeyMoneyAndStudentDetails();
         for (Object[] objects : list) {
             String stu_Id= (String) objects[0];

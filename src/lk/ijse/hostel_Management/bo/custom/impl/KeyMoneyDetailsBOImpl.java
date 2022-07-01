@@ -5,6 +5,7 @@ import lk.ijse.hostel_Management.dao.DAOFactory;
 import lk.ijse.hostel_Management.dao.custom.QuarryDAO;
 
 
+import java.io.IOException;
 import java.util.List;
 
 public class KeyMoneyDetailsBOImpl implements KeyMoneyDetailsBO {
@@ -12,7 +13,7 @@ public class KeyMoneyDetailsBOImpl implements KeyMoneyDetailsBO {
     private final QuarryDAO queryDAO =  (QuarryDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.QUERY);
 
     @Override
-    public List<Object[]> getKeyMoneyAndStudentDetails() {
+    public List<Object[]> getKeyMoneyAndStudentDetails() throws IOException {
         return queryDAO.getKeyMoneyAndStudentDetails();
     }
 

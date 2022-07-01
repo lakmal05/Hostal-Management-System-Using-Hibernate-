@@ -11,10 +11,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="ReservationDetailsFormContext" prefHeight="508.0" prefWidth="776.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel_Management.controller.ReservationDetailForm">
+<AnchorPane fx:id="ReservationDetailsFormContext" prefHeight="560.0" prefWidth="927.0" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel_Management.controller.ReservationDetailForm">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="75.0" stroke="#fffefe" strokeType="INSIDE" width="776.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="56.0" stroke="#fffefe" strokeType="INSIDE" width="927.0">
          <fill>
             <LinearGradient endX="0.033333333333333326" endY="0.9904761904761905">
                <stops>
@@ -24,22 +23,16 @@
             </LinearGradient>
          </fill>
       </Rectangle>
-      <Label layoutX="321.0" layoutY="27.0" prefHeight="21.0" prefWidth="150.0" text="Manager Orders" textFill="BLUE">
+      <Label layoutX="340.0" layoutY="18.0" prefHeight="21.0" prefWidth="209.0" text="Reservation Details" textFill="BLUE">
          <font>
             <Font name="Consolas Bold" size="17.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtReservationID" layoutX="84.0" layoutY="119.0" text="Resevetion ID" />
-      <JFXTextField fx:id="txtRoomID" layoutX="441.0" layoutY="154.0" text="Rooom ID" />
-      <JFXTextField fx:id="txtAddress" layoutX="329.0" layoutY="188.0" text="Adress" />
-      <JFXTextField fx:id="txtStudentID" layoutX="84.0" layoutY="175.0" text="Student ID" />
-      <JFXTextField fx:id="txtDate" layoutX="284.0" layoutY="129.0" text="Date" />
-      <JFXTextField fx:id="txtName" layoutX="170.0" layoutY="200.0" text="Name" />
-      <JFXTextField fx:id="txtDOB" layoutX="471.0" layoutY="213.0" text="DOB" />
-      <JFXTextField fx:id="txtStatus" layoutX="500.0" layoutY="107.0" text="Status" />
-      <JFXTextField fx:id="txtGender" layoutX="530.0" layoutY="188.0" text="Gender" />
-      <JFXButton fx:id="btnUpdate" layoutX="651.0" layoutY="144.0" onAction="#btnUpdateOnAction" text="Update" />
-      <TableView fx:id="tblReservationDetails" layoutX="52.0" layoutY="254.0" prefHeight="200.0" prefWidth="637.0">
+      <JFXButton fx:id="btnUpdate" layoutX="776.0" layoutY="140.0" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="85.0" styleClass="update" text="Update" textFill="WHITE">
+         <font>
+            <Font name="Georgia Bold" size="15.0" />
+         </font></JFXButton>
+      <TableView fx:id="tblReservationDetails" layoutX="107.0" layoutY="330.0" prefHeight="200.0" prefWidth="637.0">
         <columns>
           <TableColumn prefWidth="120.0" text="Reservation ID" />
           <TableColumn prefWidth="104.0" text="Date" />
@@ -49,6 +42,55 @@
             <TableColumn prefWidth="104.0" text="Action" />
         </columns>
       </TableView>
-      <JFXTextField fx:id="txtContact" layoutX="329.0" layoutY="107.0" text="Contact" />
+      <AnchorPane layoutX="43.0" layoutY="75.0" prefHeight="29.0" prefWidth="131.0" styleClass="textPane">
+         <children>
+            <JFXTextField fx:id="txtStudentID" layoutX="7.0" layoutY="3.0" styleClass="textField" text="Student ID" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="39.0" layoutY="181.0" prefHeight="35.0" prefWidth="162.0" styleClass="textPane">
+         <children>
+            <JFXTextField fx:id="txtReservationID" layoutX="15.0" layoutY="8.0" styleClass="textField" text="Resevetion ID" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="52.0" layoutY="120.0" prefHeight="30.0" prefWidth="154.0" styleClass="textPane">
+         <children>
+            <JFXTextField fx:id="txtDate" layoutX="7.0" layoutY="8.0" styleClass="textField" text="Date" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="474.0" layoutY="225.0" prefHeight="30.0" prefWidth="162.0" styleClass="textPane">
+         <children>
+            <JFXTextField fx:id="txtContact" layoutX="13.0" layoutY="8.0" prefHeight="25.0" prefWidth="122.0" styleClass="textField" text="Contact" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="39.0" layoutY="251.0" prefHeight="29.0" prefWidth="162.0" styleClass="textPane">
+         <children>
+            <JFXTextField fx:id="txtName" layoutX="9.0" layoutY="8.0" styleClass="textField" text="Name" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="265.0" layoutY="233.0" prefHeight="30.0" prefWidth="175.0" styleClass="textPane">
+         <children>
+            <JFXTextField fx:id="txtAddress" layoutX="17.0" layoutY="10.0" prefHeight="21.0" prefWidth="145.0" styleClass="textField" text="Adress" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="259.0" layoutY="74.0" prefHeight="21.0" prefWidth="162.0" styleClass="textPane">
+         <children>
+            <JFXTextField fx:id="txtStatus" layoutX="9.0" layoutY="6.0" styleClass="textField" text="Status" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="252.0" layoutY="166.0" prefHeight="35.0" prefWidth="175.0" styleClass="textPane">
+         <children>
+            <JFXTextField fx:id="txtRoomID" layoutX="15.0" layoutY="11.0" styleClass="textField" text="Rooom ID" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="454.0" layoutY="73.0" prefHeight="25.0" prefWidth="162.0" styleClass="textPane">
+         <children>
+            <JFXTextField fx:id="txtGender" layoutX="9.0" layoutY="8.0" styleClass="textField" text="Gender" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="474.0" layoutY="134.0" prefHeight="35.0" prefWidth="162.0" styleClass="textPane">
+         <children>
+            <JFXTextField fx:id="txtDOB" layoutX="9.0" layoutY="15.0" styleClass="textField" text="DOB" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
